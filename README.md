@@ -1,2 +1,0 @@
-# Nanas-Analytics-Casebook
-🍍 A structured casebook of my Data Analytics &amp; Machine Learning projects. From data wrangling to deployment, each case tells a story of insights.
