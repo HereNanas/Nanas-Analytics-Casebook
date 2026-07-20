@@ -4,7 +4,7 @@ Predicting a scientific journal's SCImago quartile (Q1–Q4) from its bibliometr
 
 ## 🎯 Background & Motivation
 
-Journal quartiles (Q1–Q4) are key indicators researchers use to assess a journal's relative standing within its subject category, and they directly affect publication strategy and academic credit. This project explores whether a journal's quartile can be predicted purely from its **bibliometric indicators** (citation counts, document counts, references, etc.) using an ensemble machine learning approach — without relying on subjective judgment of a journal's reputation.
+Journal quartiles (Q1–Q4) are key indicators researchers use to assess a journal's relative standing within its subject category, and they directly affect publication strategy and academic credit. This project explores whether a journal's quartile can be predicted solely from its **bibliometric indicators** (citation counts, document counts, references, etc.) using an ensemble machine-learning approach — without relying on subjective judgments of a journal's reputation.
 
 This work builds on my published research on ensemble methods for journal classification (see [Related Publications](https://scholar.google.com/citations?user=sLmEtkcAAAAJ&hl=id) below).
 
@@ -87,11 +87,10 @@ AdaBoost-+-Gaussian-Naive-Bayes/
 ├── notebook/
 │   └── AdaGNBKFold.ipynb
 ├── data/
-│   └── (dataset or link to source, if shareable)
+│   └── (Computer Science.csv)
 ├── results/
-│   ├── confusion_matrix.png
-│   └── roc_auc.png
-└── requirements.txt
+    ├── confusion_matrix.png
+    └── roc_auc.png
 ```
 
 ## ▶️ How to Run
