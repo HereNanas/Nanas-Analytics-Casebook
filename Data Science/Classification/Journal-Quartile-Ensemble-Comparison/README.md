@@ -92,12 +92,12 @@ To keep the comparison fair, every notebook in this project follows the same pro
 
 ## ⚠️ Known Limitations & Future Improvements
 
-- **Hyperparameters were set empirically**, not through systematic tuning (e.g. `GridSearchCV`) — e.g. Decision Tree `max_depth` varies between notebooks (10 for Bagging, 1000 for AdaBoost) without a controlled sweep. A fairer comparison would tune each model's hyperparameters independently before comparing final performance.
+- **Hyperparameters were set empirically**, not through systematic tuning (e.g., `GridSearchCV`); e.g., Decision Tree `max_depth` varies between notebooks (10 for Bagging, 1000 for AdaBoost) without a controlled sweep. A fairer comparison would tune each model's hyperparameters independently before comparing final performance.
 - **XGBoost cannot use a custom base estimator** the way AdaBoost/Bagging can in scikit-learn. `05_xgboost_decisiontree.ipynb` explicitly sets `booster='gbtree'` to confirm XGBoost is already using trees as its native weak learner (its only real option); `06_xgboost_gnb_augmented.ipynb` instead incorporates GaussianNB via **feature augmentation** (its predicted class probabilities added as extra input features) rather than as a true "base estimator" swap — a legitimate but different technique from what AdaBoost/Bagging do.
-- **Test set sizes differ slightly across notebooks** (7,494 samples in the scikit-learn-based notebooks vs. 7,413 in the two XGBoost notebooks), due to a minor difference in how missing values were handled during data loading (`decimal=','` parsing plus `dropna()` in the XGBoost notebooks). This doesn't materially change the conclusions, but exact accuracy figures aren't perfectly apples-to-apples with the other four models.
+- **Test set sizes differ slightly across notebooks** (7,494 samples in the scikit-learn-based notebooks vs. 7,413 in the two XGBoost notebooks), due to a minor difference in how missing values were handled during data loading (`decimal=','` parsing plus `dropna()` in the XGBoost notebooks). This doesn't materially change the conclusions, but the exact accuracy figures aren't perfectly apples-to-apples with those of the other four models.
 - **Class imbalance:** Q1–Q4 support is reasonably balanced in this dataset (~1,500–2,300 per class in the test set), but this hasn't been tested on more imbalanced subject categories.
 - **Single train-test split:** while 10-fold CV is used for validation, the headline test-set numbers come from one stratified split; repeating with multiple random seeds would give more robust accuracy estimates.
-- **Deprecated XGBoost parameter:** both XGBoost notebooks pass `use_label_encoder=False`, which triggers a harmless but noisy deprecation warning in recent `xgboost` versions (the parameter no longer has any effect and can simply be removed).
+- **Deprecated XGBoost parameter:** both XGBoost notebooks pass `use_label_encoder=False`, which triggers a harmless but noisy deprecation warning in recent `xgboost` versions (the parameter no longer has any effect and can be removed).
 
 ## 🛠️ Tech Stack
 
@@ -116,7 +116,7 @@ journal-quartile-ensemble-comparison/
 │   ├── 05_xgboost_decisiontree.ipynb
 │   └── 06_xgboost_gnb_augmented.ipynb
 ├── data/
-│   └── 28.csv  (or a link to the source, if the raw file isn't shareable)
+│   └── 28.csv  
 ├── results/
 │   ├── confusion_matrix_adaboost_gaussiannb.png
 │   ├── confusion_matrix_adaboost_decisiontree.png
@@ -144,7 +144,7 @@ jupyter notebook notebook/04_bagging_decisiontree.ipynb   # or any of the 5 note
 
 ## 📚 Related Publications
 
-- Boosting and bagging classification for a computer science journal [publication 1](https://openurl.ebsco.com/EPDB%3Agcd%3A15%3A22869903/detailv2?sid=ebsco%3Aplink%3Acrawler-gcd&id=ebsco%3Agcd%3A163298650&crl=c&jrnl=24426571&link_origin=scholar.google.com)
+- Boosting and bagging classification for a computer science journal [Publication 1](https://openurl.ebsco.com/EPDB%3Agcd%3A15%3A22869903/detailv2?sid=ebsco%3Aplink%3Acrawler-gcd&id=ebsco%3Agcd%3A163298650&crl=c&jrnl=24426571&link_origin=scholar.google.com)
 - Classification of Engineering Journals Quartile using Various Supervised Learning Models [Publication 2](https://pdfs.semanticscholar.org/d763/a9504977ca0e1938b09240bffab4fcbc2f12.pdf)
 - Performance of Ensemble Classification for Agricultural and Biological Science Journals with Scopus Index [Publication 3](https://distantreader.org/stacks/journals/keds/keds-37161.pdf)
 - Immunology and Microbiology Journals Quartile Classification Using Decision Tree (ID3) Ensemble Models [Publication 4](https://www.taylorfrancis.com/chapters/edit/10.1201/9781003331674-20/immunology-microbiology-journals-quartile-classification-using-decision-tree-id3-ensemble-models-nastiti-susetyo-fanany-putri-aji-prasetya-wibawa-harits-ar-rosyid-andrew-nafalski-eisuke-hanada)
