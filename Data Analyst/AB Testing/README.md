@@ -62,13 +62,10 @@ Python · Pandas · NumPy · SciPy · Statsmodels · Matplotlib · Seaborn
 ```
 AB Testing/
 ├── README.md
-├── notebook/
-│   └── AB Testing.ipynb
-├── data/
-│   └── ab_test_ecommerce.csv
-├── results/
-│   ├── conversion_rate_by_group.png
-│   └── revenue_distribution.png
+├── AB Testing.ipynb
+├── ab_test_ecommerce.csv
+├── conversion_rate_by_group.png
+├── revenue_distribution.png
 └── requirements.txt
 ```
 
